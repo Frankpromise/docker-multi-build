@@ -77,16 +77,23 @@ Some of the commands you will use:
 Tasks:
 Part I - Manual stuff
 (1) Pull a maven docker image and manually build the application
+    
 (2) Manually run the application
+    
 (3) If you did not get full points - fix what you did wrong, until you do.
 
 Part II - Dockerfile
+    
 (4) Build the application using maven image and a volume
+    
 (5) Create a Dockerfile that include the application and runs it as the entrypoint
 
 Part III - Multi-stage
+    
 (6) Create a multi-stage Dockerfile that
+    
 (a) builds the application based on COPY of sources
+    
 (b) creates an image which includes the app as it's entry point
 
 

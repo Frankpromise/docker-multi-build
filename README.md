@@ -24,6 +24,7 @@ It helps simplify the mechanics of the builder pattern.
 
 ## example
 
+```
 FROM build_image:v1 AS builder
 COPY sources .
 RUN install build dependences
@@ -33,20 +34,24 @@ FROM minimal_run_time_image:v2
 COPY --from=builder /output /app
 COPY entry-point.sh /app
 ENTRYPOINT ["/app/entry-point.sh"]
-
+```
 ## with multiple stage:
-we can use multiple FROM statements in one dockerfile
+
+- we can use multiple FROM statements in one dockerfile
+
 - Each FROM instruction can use a differen base.
+
 - Each of them begins with a new stage of build.
+
 - You can selectively copy artifacts fromone stage to another, leaving behind everything you dont wan in the final image.
 
 - Name your build stages because by default, stages are not named, You can also choose to refer to them by their integer number, starting from 0 for the first FROM instructon.
 
 - You can name your stages by adding an "as <Name>" to the FROM instruction.
 
-if we would like to stop a a specific build stage, specify a target build stage
+- if we would like to stop a a specific build stage, specify a target build stage
 
-docker build --target builder -t <image>. It is usually useful for debugging.
+- docker build --target builder -t <image>. It is usually useful for debugging.
 
 
 ## TASK
@@ -64,7 +69,9 @@ In order to execute it you will only need a Java Runtime Environment (JRE). Note
 
 Some of the commands you will use:
 [a] To build: `mvn verify`
+
     The resulting application is found in "target" as "hello-java.jar".
+    
 [b] To run: `java -jar hello-java.jar`
 
 Tasks:
